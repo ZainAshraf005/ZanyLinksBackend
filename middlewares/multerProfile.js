@@ -32,7 +32,7 @@ const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
     // Accept only image files
-    const allowedTypes = /jpeg|jpg|png|gif/;
+    const allowedTypes = /jpeg|jpg|png|gif|avif|webp/;
     const ext = allowedTypes.test(
       path.extname(file.originalname).toLowerCase()
     );
