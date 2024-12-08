@@ -53,6 +53,9 @@ const removeLink = async (req, res, next) => {
   try {
     const platform = req.params.platform.toLowerCase().trim();
     const {userId} = req.body;
+    if(!userId){
+       return res.status(400).json({ message: "Invalid user ID", success: false });
+    }
     if (!platform) {
       return res
         .status(400)
