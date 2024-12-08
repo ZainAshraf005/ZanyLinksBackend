@@ -6,8 +6,8 @@ const router = express.Router();
 router.route("/add").post(authMiddleware, socialLinks.addLinks);
 router
   .route("/remove/:platform")
-  .delete(authMiddleware, socialLinks.removeLink);
-router.route("/update").patch(authMiddleware, socialLinks.updateLink);
+  .post(authMiddleware, socialLinks.removeLink);
+router.route("/update").post(authMiddleware, socialLinks.updateLink);
 router.route("/:username").get(socialLinks.getLinks);
 
 export default router;
