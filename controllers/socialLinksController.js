@@ -52,13 +52,14 @@ const addLinks = async (req, res, next) => {
 const removeLink = async (req, res, next) => {
   try {
     const platform = req.params.platform.toLowerCase().trim();
+    const {userId} = req.body;
     if (!platform) {
       return res
         .status(400)
         .json({ message: "Invalid platform", success: false });
     }
 
-    const userExists = await User.findById(req.id);
+    const userExists = await User.findById(userId);
     if (!userExists) {
       return res
         .status(404)
