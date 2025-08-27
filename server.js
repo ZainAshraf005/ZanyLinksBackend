@@ -32,7 +32,7 @@ app.use((err, req, res, next) => {
     // Multer-specific errors
     res.status(400).json({ error: err.message });
   }
-});
+})
 
 app.use("/api/auth", authRouter);
 app.use("/api/links", linksRouter);
